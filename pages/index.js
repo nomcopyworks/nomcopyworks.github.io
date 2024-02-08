@@ -20,9 +20,9 @@ const Index = () => {
         <div className="author_image absolute top-0 left-0 bottom-0 w-[40%] z-[15]">
           <div
             className="main absolute inset-0 bg-no-repeat bg-cover bg-center"
-            data-img-url="assets/img/Website/Gifs/Sequence 01_1.gif"
+            data-img-url="assets/img/Website/Gifs/HomeGif.gif"
           />
-          
+
         </div>
         <div className="main_content absolute top-0 right-0 bottom-0 w-[60%]">
           {/* HOME */}

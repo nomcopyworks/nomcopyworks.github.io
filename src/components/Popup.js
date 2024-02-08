@@ -1647,10 +1647,10 @@ export const Detail9 = ({ isOpen12, toggleModalTwelve }) => {
               <div className="main_details w-full h-auto clear-both flex mb-[60px]">
                 <div className="textbox w-[70%] pr-[40px]">
                   <p className="mb-[15px]">
-                    I created this piece using [Insert Blurb] 
+                  The goal of this project was  to meticulously handcraft a pair of Leather Chuck Taylor All Stars, utilizing only authentic materials and the highest quality leather. The inspiration for this endeavor was drawn from the renowned brand's legacy of comfort and durability. My goal was to recreate these iconic shoes with an unwavering attention to detail and uncompromising quality, aiming to deliver a fusion of artistry and authenticity. 
                   </p>
                   <p>
-                    [More Detail]
+                  The custom leather All-Stars serve as a homage to the timeless design of Chuck Taylor, providing a unique and high-quality interpretation of the classic footwear.
                   </p>
                 </div>
                 <div className="detailbox w-[30%] pl-[40px]">
