@@ -415,7 +415,7 @@ const About = () => {
                     <div className="text w-full h-auto clear-both float-left relative border-solid border-[#E5EDF4] border-2 p-[40px] mb-[30px]">
                       <i className="icon-quote-left absolute z-[1] text-[30px] top-[-29px] left-[50px]" />
                       <p>
-                        Matt is a fantastic designer, he created a shoe...
+                        Matt is a fantastic designer, he created a shoe design and brought it to life in a beautiful manner.
                       </p>
                     </div>
                     <div className="details w-full h-auto clear-both float-left flex items-center pl-[20px]">
@@ -427,9 +427,9 @@ const About = () => {
                       </div>
                       <div className="info pl-[20px]">
                         <h3 className="text-[16px] mb-[2px] font-semibold">
-                          Armin Van Buuren
+                          Armin V
                         </h3>
-                        <span className="text-[14px]">Content Manager</span>
+                        <span className="text-[14px]">Student</span>
                       </div>
                     </div>
                   </div>
@@ -439,7 +439,7 @@ const About = () => {
                     <div className="text w-full h-auto clear-both float-left relative border-solid border-[#E5EDF4] border-2 p-[40px] mb-[30px]">
                       <i className="icon-quote-left absolute z-[1] text-[30px] top-[-29px] left-[50px]" />
                       <p>
-                        Matt is an amazing teammate, and fried. He created a design for a shoe that he brought to life which helped me with ...
+                        Matt is an amazing teammate, and friend. He designed and painted many shoes for my sneaker business, it has been a pleasure to work with him, and I am very excited to see his next big moves!
                       </p>
                     </div>
                     <div className="details w-full h-auto clear-both float-left flex items-center pl-[20px]">
