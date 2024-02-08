@@ -20,7 +20,7 @@ const Index = () => {
         <div className="author_image absolute top-0 left-0 bottom-0 w-[40%] z-[15]">
           <div
             className="main absolute inset-0 bg-no-repeat bg-cover bg-center"
-            data-img-url="assets/img/Website/Gifs/HomeGif.gif"
+            data-img-url="assets/img/Website/Gifs/MLHome_3.gif"
           />
 
         </div>
