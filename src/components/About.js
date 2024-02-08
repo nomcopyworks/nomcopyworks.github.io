@@ -201,9 +201,9 @@ const About = () => {
                           </div>
                           <div className="place w-1/2 pl-[20px]">
                             <h3 className="text-[16px] mb-[2px] font-semibold">
-                              Arsturia School of Art and Design
+                              Arsutoria School of Design
                             </h3>
-                            <span className="text-[14px]">Program</span>
+                            <span className="text-[14px]">Education Program</span>
                           </div>
                         </div>
                       </li>
