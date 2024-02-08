@@ -153,7 +153,7 @@ const Portfolio = () => {
                     data-filter=".sneakers"
                     onClick={handleFilterKeyChange("sneakers")}
                   >
-                    Sneakers
+                    Sneaker Builds
                   </a>
                 </li>
                 <li className="mr-[40px] inline-block">
@@ -186,16 +186,7 @@ const Portfolio = () => {
                     Personal
                   </a>
                 </li>
-                <li className="inline-block">
-                  <a
-                    href="#"
-                    className="text-[#333] font-poppins font-medium transition-all duration-300"
-                    data-filter=".digitaldesigns"
-                    onClick={handleFilterKeyChange("digitaldesigns")}
-                  >
-                    Digital Designs
-                  </a>
-                </li>
+                
               </ul>
             </div>
             <div className="portfolio_list w-full h-auto clear-both float-left">
@@ -359,7 +350,7 @@ const Portfolio = () => {
                 </li>
 
                 {/*Start Portfolio Item 6 */}
-              <li className="digitaldesigns mb-[50px] w-1/2 float-left pl-[50px] item__">
+              <li className="personal mb-[50px] w-1/2 float-left pl-[50px] item__">
                   <div className="list_inner w-full h-auto clear-both float-left relative overflow-hidden">
                     <div className="image relative">
                       <img
@@ -517,7 +508,7 @@ const Portfolio = () => {
                 </li>
 
 {/*Start Portfolio Item 9 Chuck Taylors*/}
-<li className="digitaldesigns mb-[50px] w-1/2 float-left pl-[50px] item__">
+<li className="sneakers mb-[50px] w-1/2 float-left pl-[50px] item__">
                   <div className="list_inner w-full h-auto clear-both float-left relative overflow-hidden">
                     <div className="image relative">
                       <img
@@ -669,7 +660,7 @@ const Portfolio = () => {
                 
  {/*Start Portfolio Item 8 */}
                 
- <li className="digitaldesigns mb-[50px] w-1/2 float-left pl-[50px] item__">
+ <li className="sneakers mb-[50px] w-1/2 float-left pl-[50px] item__">
                   <div className="list_inner w-full h-auto clear-both float-left relative overflow-hidden">
                     <div className="image relative">
                       <img
@@ -831,7 +822,7 @@ const Portfolio = () => {
 
  {/*Start Portfolio Item 4 */}
 
- <li className="sneakers mb-[50px] w-1/2 float-left pl-[50px] item__">
+ <li className="personal mb-[50px] w-1/2 float-left pl-[50px] item__">
                   <div className="list_inner w-full h-auto clear-both float-left relative overflow-hidden">
                     <div className="image relative">
                       <img
@@ -985,7 +976,7 @@ const Portfolio = () => {
                 
               {/*Start Portfolio Item 7 */}
                 
-<li className="digitaldesigns mb-[50px] w-1/2 float-left pl-[50px] item__">
+<li className="personal mb-[50px] w-1/2 float-left pl-[50px] item__">
                   <div className="list_inner w-full h-auto clear-both float-left relative overflow-hidden">
                     <div className="image relative">
                       <img
@@ -1145,7 +1136,7 @@ const Portfolio = () => {
 
 {/*Start Portfolio Item 6 */}
 
-<li className="sneakers mb-[50px] w-1/2 float-left pl-[50px] item__">
+<li className="designs mb-[50px] w-1/2 float-left pl-[50px] item__">
                   <div className="list_inner w-full h-auto clear-both float-left relative overflow-hidden">
                     <div className="image relative">
                       <img
@@ -1300,7 +1291,7 @@ const Portfolio = () => {
 
 {/*Start Portfolio Item 3 */}
 
-<li className="digitaldesigns mb-[50px] w-1/2 float-left pl-[50px] item__">
+<li className="designs mb-[50px] w-1/2 float-left pl-[50px] item__">
                   <div className="list_inner w-full h-auto clear-both float-left relative overflow-hidden">
                     <div className="image relative">
                       <img
@@ -1453,7 +1444,7 @@ const Portfolio = () => {
 
 
                 {/*Start Portfolio Item 5 */}
-                <li className="digitaldesigns mb-[50px] w-1/2 float-left pl-[50px] item__">
+                <li className="woodworking mb-[50px] w-1/2 float-left pl-[50px] item__">
                   <div className="list_inner w-full h-auto clear-both float-left relative overflow-hidden">
                     <div className="image relative">
                       <img
