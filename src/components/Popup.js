@@ -725,7 +725,7 @@ export const Detail4 = ({ isOpen7, toggleModalSeven }) => {
                 <h3 className="text-[16px] mb-[2px] font-semibold">
                   Birkenstock
                 </h3>
-                <span className="text-[14px]">Sneaker</span>
+                <span className="text-[14px]">Footwear</span>
                 <div />
               </div>
               <div className="main_details w-full h-auto clear-both flex mb-[60px]">
