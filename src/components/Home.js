@@ -48,7 +48,7 @@ const Home = () => {
           
           <div className="cavani_tm_button transition_link m-1">
             <a href="#contact" onClick={() => navChange("portfolio")}>
-              Portfilio
+              Portfolio
             </a>
           </div>
         </div>
