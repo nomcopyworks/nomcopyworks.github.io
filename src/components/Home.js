@@ -42,7 +42,7 @@ const Home = () => {
           <TypingAnimation />
           <div className="cavani_tm_button transition_link m-1">
             <a href="#contact" onClick={() => navChange("about")}>
-              About Me!
+              About Me
             </a>
           </div>
           
