@@ -23,7 +23,7 @@ const Header = () => {
           <div className="logo" data-type="text">
             {" "}
             {/* You can use text or image as logo. data-type values are: "image" and "text"  */}
-            <a className="image" href="#">
+            <a className="image" href="#home">
               <img
                 className="max-w-[100px] max-h-[40px]"
                 src="assets/img/logo/dark.png"

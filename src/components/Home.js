@@ -40,9 +40,15 @@ const Home = () => {
           </h3>
           <span className="line inline-block w-[70px] h-[5px] bg-[#333] mb-[30px]" />
           <TypingAnimation />
-          <div className="cavani_tm_button transition_link">
+          <div className="cavani_tm_button transition_link m-1">
             <a href="#contact" onClick={() => navChange("about")}>
               About Me!
+            </a>
+          </div>
+          
+          <div className="cavani_tm_button transition_link m-1">
+            <a href="#contact" onClick={() => navChange("portfolio")}>
+              Portfilio
             </a>
           </div>
         </div>
