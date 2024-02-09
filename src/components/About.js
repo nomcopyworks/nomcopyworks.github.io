@@ -367,7 +367,7 @@ const About = () => {
                 </li>
               </ul>
             </div>
-          </div>*/}
+          </div>
           <div className="testimonials w-full h-auto clear-both float-left mb-[90px]">
             <div className="cavani_tm_title w-full h-auto clear-both float-left overflow-hidden">
               <span className="inline-block relative font-poppins text-[#333] uppercase font-bold tracking-[8px]">
@@ -460,7 +460,7 @@ const About = () => {
                 </SwiperSlide>
               </Swiper>
             </div>
-          </div>
+          </div>*/}
         </div>
       </div>
     </SectionContainer>
