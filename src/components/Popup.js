@@ -368,12 +368,10 @@ export const Detail2 = ({ isOpen5, toggleModalFive }) => {
               <div className="main_details w-full h-auto clear-both flex mb-[60px]">
                 <div className="textbox w-[70%] pr-[40px]">
                   <p className="mb-[15px]">
-                    I had the pleasure of taking a sneaker design studio at James Madison University as a part of the Industrial Design Major. 
-                    During this time,  bring to life a number of footmware designs which I am very excited to showcase.
+                    I had the pleasure of taking a sneaker design studio at James Madison University as a part of the Industrial Design Major. During this time, I brought to life a number of footwear designs which I am very excited to showcase.
                   </p>
-                  <p>
-                    Below are the design inspiration and final product of the cleats. I have been playing Ultimate Frisbee for many years and have noticed various problems with the cleats that are commonly used for the sport. This inspired me to design the Frisbee Specific cleat that addresses these issues.
-                  </p>
+                  <p> Below are the design inspirations are final product of the cleats. I have been playing Ultimate Frisbee for many years and have noticed various problems with the cleats that are commonly used for the sport. This inspired me to design the Frisbee specific cleat that addresses these issues.
+                    </p>
                 </div>
                 <div className="detailbox w-[30%] pl-[40px]">
                   <ul>
@@ -1502,8 +1500,7 @@ export const Detail8 = ({ isOpen11, toggleModalEleven }) => {
               <div className="main_details w-full h-auto clear-both flex mb-[60px]">
                 <div className="textbox w-[70%] pr-[40px]">
                   <p className="mb-[15px]">
-                  The goal of this project was  to meticulously handcraft a pair of Leather Air Jordan sneakers, utilizing only authentic materials and the highest quality leather. The inspiration for this endeavor was drawn from the renowned brand's legacy of comfort and durability. My goal was to recreate these iconic shoes with an unwavering attention to detail and uncompromising quality, aiming to deliver a fusion of artistry and authenticity. The custom-made sneakers serve as a homage to the timeless design of Air Jordan, providing a unique and high-quality interpretation of the classic footwear.
-
+                  The goal of this project was to craft a pair of Leather Air Jordan sneakers using the highest quality materials. Inspired by the brands history and my personal connection with the shoe, these cusom-made sneakers are a manifestation of my respect of the timless design of the Air Jordan.
                   </p>
                 </div>
                 <div className="detailbox w-[30%] pl-[40px]">

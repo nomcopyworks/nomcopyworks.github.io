@@ -53,7 +53,7 @@ const About = () => {
                 I grew up in Yardley, Pennsylvania, a suburb of Philadelphia, where I discovered my passion for sports and art at a young age. I played various sports throughout middle and high school, but it was Ultimate Frisbee that ultimately captured my heart. I now play professionally with the New York Empire and was selected for Team USA in 2020. My love for Frisbee has not only given me lifelong friends and incredible experiences, but it has also opened many doors for me, including the opportunity to travel the world.
 								</p>
                 <p>
-							   In high school, I also became deeply interested in sneaker culture and started a sneaker design business. This interest led me to switch my major from marketing to industrial design at James Madison University. As a designer, I love the challenge of creating new and innovative products, and I am particularly interested in fashion and footwear design. I am excited to showcase my skills and continue learning in the design industry upon graduation in May 2024.
+							   In High School, I also became deeply interested in sneaker culture and started a sneaker design business. This interest led me to switch my major from Marketing to Industrial Design at James Madison University. As a designer, I love the challenge of creating new and innovative products, and I am particularly interested in fashion and footwear design. I am excited to showcase my skills and continue learning in the design industry upon graduation in May 2024.
                 </p>
                 
               </div>
@@ -93,7 +93,7 @@ const About = () => {
                   </li>
                   <li className="mb-[8px] w-full float-left">
                     <span className="first inline-block min-w-[100px] font-bold">
-                      Mail:
+                      Email:
                     </span>
                     <span className="second inline-block">
                     <a
@@ -120,19 +120,19 @@ const About = () => {
                 <div className="list w-full h-auto clear-both float-left mt-[55px]">
                   <ul>
                     <li className="mb-[8px] w-full float-left relative pl-[25px]">
-                      Material Design
+                      Material Design 
                     </li>
                     <li className="mb-[8px] w-full float-left relative pl-[25px]">
-                      Graphic Design
+                      Graphic Design - <strong>Adobe Creative Suite</strong>
                     </li>
                     <li className="mb-[8px] w-full float-left relative pl-[25px]">
                       Sneaker Design
                     </li>
                     <li className="mb-[8px] w-full float-left relative pl-[25px]">
-                      Shoemaking
+                      Pattern Making 
                     </li>
                     <li className="w-full float-left relative pl-[25px]">
-                      Woodworking
+                      AutoCAD - <strong>Rhino 7</strong>
                     </li>
                   </ul>
                 </div>
@@ -203,7 +203,7 @@ const About = () => {
                             <h3 className="text-[16px] mb-[2px] font-semibold">
                               Arsutoria School of Design
                             </h3>
-                            <span className="text-[14px]">Education Program</span>
+                            <span className="text-[14px]">Footwear Technical Program</span>
                           </div>
                         </div>
                       </li>

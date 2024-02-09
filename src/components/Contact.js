@@ -64,7 +64,7 @@ const Contact = () => {
                       width="100%"
                       height={355}
                       id="gmap_canvas"
-                      src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                      src="https://maps.google.com/maps?q=2880%20Yardley,%20Pennsylvania%20Y&t=&z=13&ie=UTF8&iwloc=&output=embed"
                       frameBorder={0}
                       scrolling="no"
                       marginHeight={0}
