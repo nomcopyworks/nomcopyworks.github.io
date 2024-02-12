@@ -241,7 +241,7 @@ const About = () => {
                         <div className="list_inner w-full h-auto clear-both flex relative">
                           <div className="time w-1/2 pr-[20px]">
                             <span className="inline-block py-[5px] px-[25px] bg-[rgba(0,0,0,.05)] rounded-[50px] text-[14px] whitespace-nowrap">
-                              2023 - running
+                              2023 - Running
                             </span>
                           </div>
                           <div className="place w-1/2 pl-[20px]">
@@ -258,7 +258,7 @@ const About = () => {
                         <div className="list_inner w-full h-auto clear-both flex relative">
                           <div className="time w-1/2 pr-[20px]">
                             <span className="inline-block py-[5px] px-[25px] bg-[rgba(0,0,0,.05)] rounded-[50px] text-[14px] whitespace-nowrap">
-                              2023-Running
+                              2023 - Running
                             </span>
                           </div>
                           <div className="place w-1/2 pl-[20px]">
