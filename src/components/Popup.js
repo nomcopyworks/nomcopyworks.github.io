@@ -370,7 +370,7 @@ export const Detail2 = ({ isOpen5, toggleModalFive }) => {
                   <p className="mb-[15px]">
                     I had the pleasure of taking a sneaker design studio at James Madison University as a part of the Industrial Design Major. During this time, I brought to life a number of footwear designs which I am very excited to showcase.
                   </p>
-                  <p> Below are the design inspirations are final product of the cleats. I have been playing Ultimate Frisbee for many years and have noticed various problems with the cleats that are commonly used for the sport. This inspired me to design the Frisbee specific cleat that addresses these issues.
+                  <p> Below are the design inspirations and final product of the cleats. I have been playing Ultimate Frisbee for many years and have noticed various problems with the cleats that are commonly used for the sport. This inspired me to design the Frisbee specific cleat that addresses these issues.
                     </p>
                 </div>
                 <div className="detailbox w-[30%] pl-[40px]">

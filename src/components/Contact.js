@@ -18,7 +18,7 @@ const Contact = () => {
                     src="assets/img/svg/location.svg"
                     alt="image"
                   />
-                  <span className="block">New York, New York, USA</span>
+                  <span className="block">Yardley, Pennsylvania, USA</span>
                 </div>
               </li>
               <li className="mb-[30px] w-1/3 pl-[30px]">
