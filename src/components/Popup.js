@@ -1748,3 +1748,582 @@ export const Detail9 = ({ isOpen12, toggleModalTwelve }) => {
   );
   
 };
+
+{/*Detail 10*/ }
+export const Detail10 = ({ isOpen13, toggleModalthirteen }) => {
+  return (
+    <Modal
+      isOpen={isOpen13}
+      onRequestClose={toggleModalthirteen}
+      contentLabel="My dialog"
+      className="mymodal"
+      overlayClassName="myoverlay"
+      closeTimeoutMS={300}
+      openTimeoutMS={300}
+    >
+      <div className="cavani_tm_modalbox opened">
+        <div className="box_inner">
+          <div className="close">
+            <a href="#" onClick={toggleModalthirteen}>
+              <i className="icon-cancel" />
+            </a>
+          </div>
+          <div className="description_wrap">
+            <div className="popup_details w-full h-auto clear-both float-left">
+              <div className="top_image">
+                <img src="assets/img/thumbs/4-2.jpg" alt="image" />
+                <div
+                  className="main"
+                  data-img-url="assets/img/Website/JMUFinal/Overview.jpg"
+                  style={{
+                    backgroundImage: 'url("assets/img/Website/JMUFinal/Overview.jpg")',
+                  }}
+                />
+              </div>
+              <div className="portfolio_main_title">
+                <h3 className="text-[16px] mb-[2px] font-semibold">
+                  JMU Final Capstone Sneaker Builds
+                </h3>
+                <span className="text-[14px]">Custom Sneakers</span>
+                <div />
+              </div>
+              <div className="main_details w-full h-auto clear-both flex mb-[60px]">
+                <div className="textbox w-[70%] pr-[40px]">
+                  <p className="mb-[15px]">
+                  In my final semester at James Madison I took part in a footwear focused Independent study. After coming home from Italy I knew I wanted to continue pushing my pattern making skills which inspired this final shoe. Through many of sketching, illustrator and physical work I'm happy to present my first fully custom made shoe.
+                  </p>
+                  
+                </div>
+                <div className="detailbox w-[30%] pl-[40px]">
+                  <ul>
+                    <li className="mb-[10px] w-full float-left">
+                      <span className="first font-bold block">School</span>
+                      <span>James Madison University</span>
+                    </li>
+                    <li className="mb-[10px] w-full float-left">
+                      <span className="first font-bold block">Category</span>
+                      <span>
+                        <a className="text-[#7d7789]" href="#">
+                          Custom Sneaker Build Capstone 
+                        </a>
+                      </span>
+                    </li>
+                    <li className="mb-[10px] w-full float-left">
+                      <span className="first font-bold block">Date</span>
+                      <span>May, 2024</span>
+                    </li>
+                    <li className="w-full float-left">
+                      
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="additional_images w-full clear-both float-left h-auto">
+
+
+                <ul className="ml-[-30px]">
+
+
+                  
+                  <li className="mb-[30px] float-left pl-[30px]">
+                    <div className="list_inner w-full clear-both float-left h-auto relative">
+                      <div className="my_image relative">
+                        <img
+                          className="relative opacity-0 min-w-full"
+                          src="assets/img/thumbs/4-2.jpg"
+                          alt="image"
+                        />
+                        <div
+                          className="main absolute inset-0 bg-no-repeat bg-cover bg-center"
+                          data-img-url="assets/img/Website/JMUFinal/converted/IMG_6745.jpg"
+                          style={{
+                            backgroundImage:
+                              'url("assets/img/Website/JMUFinal/converted/IMG_6745.jpg")',
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </li>
+                  
+                  <li className="mb-[30px] float-left pl-[30px]">
+                    <div className="list_inner w-full clear-both float-left h-auto relative">
+                      <div className="my_image relative">
+                        <img
+                          className="relative opacity-0 min-w-full"
+                          src="assets/img/thumbs/4-2.jpg"
+                          alt="image"
+                        />
+                        <div
+                          className="main absolute inset-0 bg-no-repeat bg-cover bg-center"
+                          data-img-url="assets/img/Website/JMUFinal/converted/IMG_6878.jpg"
+                          style={{
+                            backgroundImage:
+                              'url("assets/img/Website/JMUFinal/converted/IMG_6878.jpg")',
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </li>
+
+                  <li className="mb-[30px] float-left pl-[30px]">
+                    <div className="list_inner w-full clear-both float-left h-auto relative">
+                      <div className="my_image relative">
+                        <img
+                          className="relative opacity-0 min-w-full"
+                          src="assets/img/thumbs/4-2.jpg"
+                          alt="image"
+                        />
+                        <div
+                          className="main absolute inset-0 bg-no-repeat bg-cover bg-center"
+                          data-img-url="assets/img/Website/JMUFinal/converted/IMG_7078.jpg"
+                          style={{
+                            backgroundImage:
+                              'url("assets/img/Website/JMUFinal/converted/IMG_7078.jpg")',
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </li>
+
+                  <li className="mb-[30px] float-left pl-[30px]">
+                    <div className="list_inner w-full clear-both float-left h-auto relative">
+                      <div className="my_image relative">
+                        <img
+                          className="relative opacity-0 min-w-full"
+                          src="assets/img/thumbs/4-2.jpg"
+                          alt="image"
+                        />
+                        <div
+                          className="main absolute inset-0 bg-no-repeat bg-cover bg-center"
+                          data-img-url="assets/img/Website/JMUFinal/converted/IMG_7109.jpg"
+                          style={{
+                            backgroundImage:
+                              'url("assets/img/Website/JMUFinal/converted/IMG_7109.jpg")',
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </li>
+
+                  <li className="mb-[30px] float-left pl-[30px]">
+                    <div className="list_inner w-full clear-both float-left h-auto relative">
+                      <div className="my_image relative">
+                        <img
+                          className="relative opacity-0 min-w-full"
+                          src="assets/img/thumbs/4-2.jpg"
+                          alt="image"
+                        />
+                        <div
+                          className="main absolute inset-0 bg-no-repeat bg-cover bg-center"
+                          data-img-url="assets/img/Website/JMUFinal/converted/IMG_6591.jpg"
+                          style={{
+                            backgroundImage:
+                              'url("assets/img/Website/JMUFinal/converted/IMG_6591.jpg")',
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </li>
+                  
+                  <li className="mb-[30px] float-left pl-[30px]">
+                    <div className="list_inner w-full clear-both float-left h-auto relative">
+                      <div className="my_image relative">
+                        <img
+                          className="relative opacity-0 min-w-full"
+                          src="assets/img/thumbs/4-2.jpg"
+                          alt="image"
+                        />
+                        <div
+                          className="main absolute inset-0 bg-no-repeat bg-cover bg-center"
+                          data-img-url="assets/img/Website/JMUFinal/converted/IMG_6701.jpg"
+                          style={{
+                            backgroundImage:
+                              'url("assets/img/Website/JMUFinal/converted/IMG_6701.jpg")',
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </li>
+
+                  <li className="mb-[30px] float-left pl-[30px]">
+                    <div className="list_inner w-full clear-both float-left h-auto relative">
+                      <div className="my_image relative">
+                        <img
+                          className="relative opacity-0 min-w-full"
+                          src="assets/img/thumbs/4-2.jpg"
+                          alt="image"
+                        />
+                        <div
+                          className="main absolute inset-0 bg-no-repeat bg-cover bg-center"
+                          data-img-url="assets/img/Website/JMUFinal/converted/IMG_6812.jpg"
+                          style={{
+                            backgroundImage:
+                              'url("assets/img/Website/JMUFinal/converted/IMG_6812.jpg")',
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </li>
+
+                  
+                </ul>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Modal>
+  );
+  
+};
+
+{/*Detail 11*/ }
+export const Detail11 = ({ isOpen14, toggleModalfourteen }) => {
+  return (
+    <Modal
+      isOpen={isOpen14}
+      onRequestClose={toggleModalfourteen}
+      contentLabel="My dialog"
+      className="mymodal"
+      overlayClassName="myoverlay"
+      closeTimeoutMS={300}
+      openTimeoutMS={300}
+    >
+      <div className="cavani_tm_modalbox opened">
+        <div className="box_inner">
+          <div className="close">
+            <a href="#" onClick={toggleModalfourteen}>
+              <i className="icon-cancel" />
+            </a>
+          </div>
+          <div className="description_wrap">
+            <div className="popup_details w-full h-auto clear-both float-left">
+              <div className="top_image">
+                <img src="assets/img/thumbs/4-2.jpg" alt="image" />
+                <div
+                  className="main"
+                  data-img-url="assets/img/Website/JMUFinal/ElephantLeather.jpg"
+                  style={{
+                    backgroundImage: 'url("assets/img/Website/JMUFinal/ElephantLeather.jpg")',
+                  }}
+                />
+              </div>
+              <div className="portfolio_main_title">
+                <h3 className="text-[16px] mb-[2px] font-semibold">
+                  Air Force 1 Dotted Leather
+                </h3>
+                <span className="text-[14px]">Custom Sneaker Project</span>
+                <div />
+              </div>
+              <div className="main_details w-full h-auto clear-both flex mb-[60px]">
+                <div className="textbox w-[70%] pr-[40px]">
+                  <p className="mb-[15px]">
+                     This was a custom sneaker I built to further my skillset with building Jordan style shoes. I applied a unique personal flair to these by using a beautiful cyan dotted leather.
+                  
+                  </p>
+                  <p>
+                    
+
+                  </p>
+                </div>
+                <div className="detailbox w-[30%] pl-[40px]">
+                  <ul>
+                    <li className="mb-[10px] w-full float-left">
+                      <span className="first font-bold block">School</span>
+                      <span>James Madison University</span>
+                    </li>
+                    <li className="mb-[10px] w-full float-left">
+                      <span className="first font-bold block">Category</span>
+                      <span>
+                        <a className="text-[#7d7789]" href="#">
+                          Sneaker Build
+                        </a>
+                      </span>
+                    </li>
+                    <li className="mb-[10px] w-full float-left">
+                      <span className="first font-bold block">Date</span>
+                      <span>May, 2024</span>
+                    </li>
+                    <li className="w-full float-left">
+                      
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="additional_images w-full clear-both float-left h-auto">
+
+
+                <ul className="ml-[-30px]">
+
+
+                  
+                  <li className="mb-[30px] float-left pl-[30px]">
+                    <div className="list_inner w-full clear-both float-left h-auto relative">
+                      <div className="my_image relative">
+                        <img
+                          className="relative opacity-0 min-w-full"
+                          src="assets/img/thumbs/4-2.jpg"
+                          alt="image"
+                        />
+                        <div
+                          className="main absolute inset-0 bg-no-repeat bg-cover bg-center"
+                          data-img-url="assets/img/Website/JMUFinal/converted/HQ/dottedprocess1.jpg"
+                          style={{
+                            backgroundImage:
+                              'url("assets/img/Website/JMUFinal/converted/HQ/dottedprocess1.jpg")',
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </li>
+                  
+                  <li className="mb-[30px] float-left pl-[30px]">
+                    <div className="list_inner w-full clear-both float-left h-auto relative">
+                      <div className="my_image relative">
+                        <img
+                          className="relative opacity-0 min-w-full"
+                          src="assets/img/thumbs/4-2.jpg"
+                          alt="image"
+                        />
+                        <div
+                          className="main absolute inset-0 bg-no-repeat bg-cover bg-center"
+                          data-img-url=""
+                          style={{
+                            backgroundImage:
+                              'url("")',
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </li>
+
+                  <li className="mb-[30px] float-left pl-[30px]">
+                    <div className="list_inner w-full clear-both float-left h-auto relative">
+                      <div className="my_image relative">
+                        <img
+                          className="relative opacity-0 min-w-full"
+                          src="assets/img/thumbs/4-2.jpg"
+                          alt="image"
+                        />
+                        <div
+                          className="main absolute inset-0 bg-no-repeat bg-cover bg-center"
+                          data-img-url=""
+                          style={{
+                            backgroundImage:
+                              'url("")',
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </li>
+
+                  <li className="mb-[30px] float-left pl-[30px]">
+                    <div className="list_inner w-full clear-both float-left h-auto relative">
+                      <div className="my_image relative">
+                        <img
+                          className="relative opacity-0 min-w-full"
+                          src="assets/img/thumbs/4-2.jpg"
+                          alt="image"
+                        />
+                        <div
+                          className="main absolute inset-0 bg-no-repeat bg-cover bg-center"
+                          data-img-url="assets/img/Website/JMUFinal/converted/HQ/dottedprocess.jpg"
+                          style={{
+                            backgroundImage:
+                              'url("assets/img/Website/JMUFinal/converted/HQ/dottedprocess.jpg")',
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </li>
+
+                  
+                </ul>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Modal>
+  );
+  
+};
+
+
+{/*Detail 10*/ }
+export const Detail12 = ({ isOpen15, toggleModalfifteen }) => {
+  return (
+    <Modal
+      isOpen={isOpen15}
+      onRequestClose={toggleModalfifteen}
+      contentLabel="My dialog"
+      className="mymodal"
+      overlayClassName="myoverlay"
+      closeTimeoutMS={300}
+      openTimeoutMS={300}
+    >
+      <div className="cavani_tm_modalbox opened">
+        <div className="box_inner">
+          <div className="close">
+            <a href="#" onClick={toggleModalfifteen}>
+              <i className="icon-cancel" />
+            </a>
+          </div>
+          <div className="description_wrap">
+            <div className="popup_details w-full h-auto clear-both float-left">
+              <div className="top_image">
+                <img src="assets/img/thumbs/4-2.jpg" alt="image" />
+                <div
+                  className="main"
+                  data-img-url="assets/img/Website/JMUFinal/converted/HQ/blotch.jpg"
+                  style={{
+                    backgroundImage: 'url("assets/img/Website/JMUFinal/converted/HQ/blotch.jpg")',
+                  }}
+                />
+              </div>
+              <div className="portfolio_main_title">
+                <h3 className="text-[16px] mb-[2px] font-semibold">
+                  Custom Jordan
+                </h3>
+                <span className="text-[14px]">Custom Sneakers</span>
+                <div />
+              </div>
+              <div className="main_details w-full h-auto clear-both flex mb-[60px]">
+                <div className="textbox w-[70%] pr-[40px]">
+                  <p className="mb-[15px]">
+                  This custom Jordan project showcases a bold and intricate design, utilizing a vibrant splatter pattern that covers the panels with an array of bright colors, creating a striking contrast against the sleek black leather. Inspired by modern streetwear aesthetics, the design reflects an abstract yet energetic theme.
+                  
+                  </p>
+                  
+                </div>
+                <div className="detailbox w-[30%] pl-[40px]">
+                  <ul>
+                    <li className="mb-[10px] w-full float-left">
+                      <span className="first font-bold block">School</span>
+                      <span>James Madison University</span>
+                    </li>
+                    <li className="mb-[10px] w-full float-left">
+                      <span className="first font-bold block">Category</span>
+                      <span>
+                        <a className="text-[#7d7789]" href="#">
+                          Custom Sneaker Build Capstone 
+                        </a>
+                      </span>
+                    </li>
+                    <li className="mb-[10px] w-full float-left">
+                      <span className="first font-bold block">Date</span>
+                      <span>May, 2024</span>
+                    </li>
+                    <li className="w-full float-left">
+                      
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="additional_images w-full clear-both float-left h-auto">
+
+
+                <ul className="ml-[-30px]">
+
+
+                  
+                  <li className="mb-[30px] float-left pl-[30px]">
+                    <div className="list_inner w-full clear-both float-left h-auto relative">
+                      <div className="my_image relative">
+                        <img
+                          className="relative opacity-0 min-w-full"
+                          src="assets/img/thumbs/4-2.jpg"
+                          alt="image"
+                        />
+                        <div
+                          className="main absolute inset-0 bg-no-repeat bg-cover bg-center"
+                          data-img-url="assets/img/Website/JMUFinal/converted/HQ/blotchprocess1.jpg"
+                          style={{
+                            backgroundImage:
+                              'url("assets/img/Website/JMUFinal/converted/HQ/blotchprocess1.jpg")',
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </li>
+                  
+                  <li className="mb-[30px] float-left pl-[30px]">
+                    <div className="list_inner w-full clear-both float-left h-auto relative">
+                      <div className="my_image relative">
+                        <img
+                          className="relative opacity-0 min-w-full"
+                          src="assets/img/thumbs/4-2.jpg"
+                          alt="image"
+                        />
+                        <div
+                          className="main absolute inset-0 bg-no-repeat bg-cover bg-center"
+                          data-img-url="assets/img/Website/JMUFinal/converted/HQ/blotchrear.jpg"
+                          style={{
+                            backgroundImage:
+                              'url("assets/img/Website/JMUFinal/converted/HQ/blotchrear.jpg")',
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </li>
+
+                  <li className="mb-[30px] float-left pl-[30px]">
+                    <div className="list_inner w-full clear-both float-left h-auto relative">
+                      <div className="my_image relative">
+                        <img
+                          className="relative opacity-0 min-w-full"
+                          src="assets/img/thumbs/4-2.jpg"
+                          alt="image"
+                        />
+                        <div
+                          className="main absolute inset-0 bg-no-repeat bg-cover bg-center"
+                          data-img-url="assets/img/Website/JMUFinal/converted/HQ/blotchprocess2.jpg"
+                          style={{
+                            backgroundImage:
+                              'url("assets/img/Website/JMUFinal/converted/HQ/blotchprocess2.jpg")',
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </li>
+
+                  <li className="mb-[30px] float-left pl-[30px]">
+                    <div className="list_inner w-full clear-both float-left h-auto relative">
+                      <div className="my_image relative">
+                        <img
+                          className="relative opacity-0 min-w-full"
+                          src="assets/img/thumbs/4-2.jpg"
+                          alt="image"
+                        />
+                        <div
+                          className="main absolute inset-0 bg-no-repeat bg-cover bg-center"
+                          data-img-url="assets/img/Website/JMUFinal/Final.jpg"
+                          style={{
+                            backgroundImage:
+                              'url("assets/img/Website/JMUFinal/Final.jpg")',
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </li>
+
+                  
+                </ul>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Modal>
+  );
+  
+};
