@@ -1935,10 +1935,10 @@ export const Detail10 = ({ isOpen13, toggleModalthirteen }) => {
                         />
                         <div
                           className="main absolute inset-0 bg-no-repeat bg-cover bg-center"
-                          data-img-url="assets/img/Website/JMUFinal/converted/IMG_6701.jpg"
+                          data-img-url="assets/img/Website/JMUFinal/converted/IMG_6851.jpg"
                           style={{
                             backgroundImage:
-                              'url("assets/img/Website/JMUFinal/converted/IMG_6701.jpg")',
+                              'url("assets/img/Website/JMUFinal/converted/IMG_6851.jpg")',
                           }}
                         />
                       </div>
