@@ -546,7 +546,7 @@ const Portfolio = () => {
                         <h3 className="text-[16px] mb-[2px] font-semibold">
                           Custom Jordan
                         </h3>
-                        <span className="text-[14px]">Personal Projects</span>
+                        <span className="text-[14px]">Personal Project</span>
                       </div>
                       <a
                         className="cavani_tm_full_link portfolio_popup"
