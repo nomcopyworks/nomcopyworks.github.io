@@ -188,7 +188,7 @@ const About = () => {
                             <h3 className="text-[16px] mb-[2px] font-semibold">
                               James Madison University
                             </h3>
-                            <span className="text-[14px]">Bachelors of Science in Art</span>
+                            <span className="text-[14px]">Bachelor of Science in Industrial Design</span>
                           </div>
                         </div>
                       </li>
