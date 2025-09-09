@@ -53,7 +53,7 @@ const About = () => {
                 I grew up in Yardley, Pennsylvania, a suburb of Philadelphia, where I discovered my passion for sports and art at a young age. I played various sports throughout middle and high school, but it was Ultimate Frisbee that ultimately captured my heart. I now play professionally with the New York Empire and was selected for Team USA in 2020. My love for Frisbee has not only given me lifelong friends and incredible experiences, but it has also opened many doors for me, including the opportunity to travel the world.
 								</p>
                 <p>
-							   In High School, I also became deeply interested in sneaker culture and started a sneaker design business. This interest led me to switch my major from Marketing to Industrial Design at James Madison University. As a designer, I love the challenge of creating new and innovative products, and I am particularly interested in fashion and footwear design. I am excited to showcase my skills and continue learning in the design industry upon graduation in May 2024.
+							   In High School, I also became deeply interested in sneaker culture and started a sneaker design business. This interest led me to switch my major from Marketing to Industrial Design at James Madison University. As a designer, I love the challenge of creating new and innovative products, and I am particularly interested in fashion and footwear design. With specialized training from Milan's prestigious Arsutoria School and real-world experience at Movado Group, I bring both European design sensibility and American innovation to every project.
                 </p>
                 
               </div>
@@ -140,25 +140,25 @@ const About = () => {
               <div className="service_list w-[50%]">
                 <div className="cavani_tm_title w-full h-auto clear-both float-left overflow-hidden">
                   <span className="inline-block relative font-poppins text-[#333] uppercase font-bold tracking-[8px]">
-                    Interests
+                    Specializations
                   </span>
                 </div>
                 <div className="list w-full h-auto clear-both float-left mt-[55px]">
                   <ul>
                     <li className="mb-[8px] w-full float-left relative pl-[25px]">
-                      Shoe Customization 
+                      Footwear Design & Development
                     </li>
                     <li className="mb-[8px] w-full float-left relative pl-[25px]">
-                      Sneaker Crafting &amp; Restoration
+                      Custom Sneaker Builds
                     </li>
                     <li className="mb-[8px] w-full float-left relative pl-[25px]">
-                      Ultimate Frisbee
+                      Leather Working & Craftsmanship
                     </li>
                     <li className="mb-[8px] w-full float-left relative pl-[25px]">
-                      Digital Design
+                      Product Visualization
                     </li>
                     <li className="w-full float-left relative pl-[25px]">
-                      Sketching
+                      Design for Manufacturing
                     </li>
                   </ul>
                 </div>
@@ -241,7 +241,7 @@ const About = () => {
                         <div className="list_inner w-full h-auto clear-both flex relative">
                           <div className="time w-1/2 pr-[20px]">
                             <span className="inline-block py-[5px] px-[25px] bg-[rgba(0,0,0,.05)] rounded-[50px] text-[14px] whitespace-nowrap">
-                              2023 - Running
+                              2023 - 2024
                             </span>
                           </div>
                           <div className="place w-1/2 pl-[20px]">
@@ -258,7 +258,7 @@ const About = () => {
                         <div className="list_inner w-full h-auto clear-both flex relative">
                           <div className="time w-1/2 pr-[20px]">
                             <span className="inline-block py-[5px] px-[25px] bg-[rgba(0,0,0,.05)] rounded-[50px] text-[14px] whitespace-nowrap">
-                              2023 - Running
+                              2023 - 2024
                             </span>
                           </div>
                           <div className="place w-1/2 pl-[20px]">
@@ -266,6 +266,21 @@ const About = () => {
                               James Madison University School of Industrial Design
                             </h3>
                             <span className="text-[14px]">Professors Assistant</span>
+                          </div>
+                        </div>
+                      </li>
+                      <li className="w-full float-left relative pl-[20px] pb-[45px]">
+                        <div className="list_inner w-full h-auto clear-both flex relative">
+                          <div className="time w-1/2 pr-[20px]">
+                            <span className="inline-block py-[5px] px-[25px] bg-[rgba(0,0,0,.05)] rounded-[50px] text-[14px] whitespace-nowrap">
+                              2023-Current
+                            </span>
+                          </div>
+                          <div className="place w-1/2 pl-[20px]">
+                            <h3 className="text-[16px] mb-[2px] font-semibold">
+                              Bullseye Sneaker Boutique
+                            </h3>
+                            <span className="text-[14px]">Sales Associate - Flagship Location, Philadelphia</span>
                           </div>
                         </div>
                       </li>

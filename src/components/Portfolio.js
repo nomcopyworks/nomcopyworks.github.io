@@ -5,6 +5,7 @@ import SectionContainer from "../layout/SectionContainer";
 import { dataImage } from "../utils";
 import ImageView from "./ImagePopup";
 import { Detail, Detail2, Detail3,Detail4,Detail5,Detail6,Detail7, Detail8, Detail9, Detail10, Detail11,Detail12, Soundcloud } from "./Popup";
+import { Detail13 } from "./DetailCMF";
 
 const Portfolio = () => {
   const ModalVideo = dynamic(
@@ -63,6 +64,7 @@ const Portfolio = () => {
   const [isOpen13, setIsOpen13] = useState(false);
   const [isOpen14, setIsOpen14] = useState(false);
   const [isOpen15, setIsOpen15] = useState(false);
+  const [isOpen16, setIsOpen16] = useState(false);
 
 
   function toggleModalThree() {
@@ -108,6 +110,10 @@ const Portfolio = () => {
     setIsOpen15(!isOpen15);
   }
 
+  function toggleModalSixteen() {
+    setIsOpen16(!isOpen16);
+  }
+
   return (
     <Fragment>
       <ImageView />
@@ -142,6 +148,7 @@ const Portfolio = () => {
       <Detail10 isOpen13={isOpen13} toggleModalthirteen={toggleModalthirteen}/>
       <Detail11 isOpen14={isOpen14} toggleModalfourteen={toggleModalfourteen}/>
       <Detail12 isOpen15={isOpen15} toggleModalfifteen={toggleModalfifteen}/>
+      <Detail13 isOpen16={isOpen16} toggleModalSixteen={toggleModalSixteen}/>
 
       <SectionContainer navName="portfolio">
         <div className="section_inner">
@@ -201,6 +208,16 @@ const Portfolio = () => {
                     onClick={handleFilterKeyChange("personal")}
                   >
                     Personal
+                  </a>
+                </li>
+                <li className="mr-[40px] inline-block">
+                  <a
+                    href="#"
+                    className="text-[#333] font-poppins font-medium transition-all duration-300"
+                    data-filter=".cmf"
+                    onClick={handleFilterKeyChange("cmf")}
+                  >
+                    CMF
                   </a>
                 </li>
                 
@@ -368,6 +385,82 @@ const Portfolio = () => {
                   </div>
                 </li>
 
+{/*Start CMF Portfolio Item */}
+<li className="cmf mb-[50px] w-1/2 float-left pl-[50px] item__">
+  <div className="list_inner w-full h-auto clear-both float-left relative overflow-hidden">
+    <div className="image relative">
+      <img
+        className="relative opacity-0 min-w-full"
+        src="assets/img/thumbs/1-1.jpg"
+        alt
+      />
+      <div
+        className="main absolute inset-0 bg-no-repeat bg-cover bg-center"
+        data-img-url="assets/img/Website/CMF%20WEBSITE/Coverphoto.jpg"
+      />
+      <div className="details">
+        <h3 className="text-[16px] mb-[2px] font-semibold">
+          CMF / Color Materials Finish
+        </h3>
+        <span className="text-[14px]">Material Design</span>
+      </div>
+      <a
+        className="cavani_tm_full_link portfolio_popup"
+        href="#"
+        onClick={toggleModalSixteen}
+      />
+    </div>
+    <div className="hidden_content hidden opacity-0 invisible absolute z-[-111]">
+      <div className="popup_details w-full h-auto clear-both float-left">
+        <div className="main_details w-full h-auto clear-both flex mb-[60px]">
+          <div className="textbox w-[70%] pr-[40px]">
+            <p className="mb-[15px]">
+              My expertise in Color, Materials, and Finish (CMF) represents a crucial aspect of industrial design that bridges aesthetic appeal with functional performance. Through my specialized training at Arsutoria School of Design and hands-on experience, I've developed a deep understanding of how material selection and surface finishes can transform a product's identity and user experience.
+            </p><br></br>
+            <p className="mb-[15px]">
+              Working with various materials from premium leathers to technical synthetics, I focus on the intersection of tactile quality, visual impact, and manufacturing feasibility. Each colorway and material combination is carefully considered for durability, aesthetic coherence, and market appeal.
+            </p><br></br>
+            <p>
+              These projects showcase my ability to develop comprehensive CMF strategies that enhance product storytelling while meeting technical requirements. From concept sketches to final production samples, I ensure every material choice supports the overall design vision.
+            </p>
+          </div>
+          <div className="detailbox w-[30%] pl-[40px]">
+            <ul>
+              <li className="mb-[10px] w-full float-left">
+                <span className="first font-bold block">
+                  Focus
+                </span>
+                <span>Material Innovation</span>
+              </li>
+              <li className="mb-[10px] w-full float-left">
+                <span className="first font-bold block">
+                  Skills
+                </span>
+                <span>
+                  <a className="text-[#7d7789]" href="#">
+                    CMF Development
+                  </a>
+                </span>
+              </li>
+              <li className="mb-[10px] w-full float-left">
+                <span className="first font-bold block">
+                  Techniques
+                </span>
+                <span>Colorway Development</span>
+              </li>
+              <li className="w-full float-left">
+                <span className="first font-bold block">
+                  Applications
+                </span>
+                <span>Footwear & Product Design</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
 
  {/*Start Portfolio Item 1 JMU Final */}
 
