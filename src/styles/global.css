@@ -20,14 +20,6 @@
 
   /* Font face declarations */
   @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: swap;
-    src: url('/fonts/inter-var.woff2') format('woff2');
-  }
-
-  @font-face {
     font-family: 'Instrument Serif';
     font-style: normal;
     font-weight: 400;
@@ -86,6 +78,32 @@
       transform: translateY(0);
     }
   }
+
+  /* Clip-path reveal animation */
+  .clip-reveal {
+    clip-path: inset(0 100% 0 0);
+    animation: clipReveal 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  }
+
+  @keyframes clipReveal {
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  /* Scale reveal for images */
+  .scale-reveal {
+    transform: scale(1.1);
+    opacity: 0;
+    animation: scaleReveal 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  }
+
+  @keyframes scaleReveal {
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
 }
 
 /* Project cards */
@@ -96,6 +114,66 @@
 /* Smooth image loading */
 img {
   transition: opacity 0.4s ease;
+}
+
+/* Custom Cursor — awwwards-level interaction */
+.custom-cursor,
+.custom-cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10000;
+  will-change: transform;
+  mix-blend-mode: difference;
+  transition: opacity 0.3s ease;
+}
+
+.custom-cursor {
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  background: #faf7f2;
+  border-radius: 50%;
+  transition: transform 0.15s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.3s ease;
+}
+
+.custom-cursor-follower {
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 1px solid rgba(250, 247, 242, 0.4);
+  border-radius: 50%;
+  transition: transform 0.25s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.3s ease;
+}
+
+.custom-cursor.cursor-hover {
+  opacity: 0.6;
+}
+
+.custom-cursor-follower.cursor-hover {
+  border-color: #d97746;
+  opacity: 0.8;
+}
+
+/* Magnetic elements */
+a, button, [data-magnetic] {
+  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: transform;
+}
+
+/* Page Loader — elegant spinning ring */
+.loader-ring {
+  border: 2px solid rgba(250, 247, 242, 0.1);
+  border-top-color: #d97746;
+  border-radius: 50%;
+  animation: loaderSpin 1s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+@keyframes loaderSpin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Grain overlay for texture */

@@ -46,17 +46,24 @@ const gridProjects = projects.slice(1);
       </div>
     </div>
 
-    {/* Hero project link overlay */}
+    {/* Hero project link overlay with depth */}
     <a
       href={`/work/${heroProject.slug}`}
+      data-magnetic
       class="absolute bottom-0 right-0 p-6 md:p-12 z-10 group"
     >
-      <span class="text-label block mb-1 text-text-secondary/60 group-hover:text-accent transition-colors duration-300">
-        Featured
-      </span>
-      <span class="font-display text-xl md:text-2xl text-white group-hover:text-accent transition-colors duration-300">
-        {heroProject.data.title} &rarr;
-      </span>
+      <div class="relative">
+        <span class="text-label block mb-1 text-text-secondary/60 group-hover:text-accent transition-colors duration-300">
+          Featured
+        </span>
+        <span class="font-display text-xl md:text-2xl text-white group-hover:text-accent transition-colors duration-300 flex items-center gap-2">
+          {heroProject.data.title}
+          <svg class="w-5 h-5 transition-transform duration-500 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M5 12h14m-7-7l7 7-7 7" />
+          </svg>
+        </span>
+        <div class="absolute -inset-4 bg-bg-primary/20 backdrop-blur-sm rounded-sm scale-0 group-hover:scale-100 transition-transform duration-500 ease-smooth -z-10" />
+      </div>
     </a>
   </section>
 
@@ -82,18 +89,19 @@ const gridProjects = projects.slice(1);
             {pattern === 0 ? (
               /* Full-width cinematic — edge to edge */
               <div class="relative w-full overflow-hidden">
-                <div class="relative w-full" style="padding-bottom: clamp(35%, 40vw, 55%);">
+                  <div class="relative w-full" style="padding-bottom: clamp(35%, 40vw, 55%);">
                   {hasVideo ? (
                     <video src={project.data.heroVideo} poster={project.data.heroImage}
-                      class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] ease-smooth group-hover:scale-[1.04]"
+                      class="absolute inset-0 w-full h-full object-cover transition-all duration-[1.2s] ease-smooth group-hover:scale-[1.04] group-hover:brightness-110"
                       autoplay muted loop playsinline data-lazy-video />
                   ) : (
                     <img src={project.data.heroImage} alt={project.data.title}
                       transition:name={`hero-${project.slug}`}
-                      class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] ease-smooth group-hover:scale-[1.04]"
+                      class="absolute inset-0 w-full h-full object-cover transition-all duration-[1.2s] ease-smooth group-hover:scale-[1.04] group-hover:brightness-110"
                       loading="lazy" />
                   )}
-                  <div class="absolute inset-0 bg-black/25 group-hover:bg-black/10 transition-colors duration-700" />
+                  <div class="absolute inset-0 bg-gradient-to-br from-bg-primary/30 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  <div class="absolute inset-0 bg-black/25 group-hover:bg-black/5 transition-colors duration-700" />
                 </div>
                 <div class="absolute bottom-0 left-0 right-0 p-6 md:p-10 lg:p-12 flex items-end justify-between">
                   <div>
@@ -106,73 +114,84 @@ const gridProjects = projects.slice(1);
                 </div>
               </div>
             ) : pattern === 1 || pattern === 3 ? (
-              /* Contained — gallery feel */
+              /* Contained — gallery feel with depth */
               <div class="container-wide py-4">
-                <div class="relative w-full overflow-hidden bg-bg-secondary">
+                <div class="relative w-full overflow-hidden bg-bg-secondary shadow-2xl shadow-accent/5 group-hover:shadow-accent/10 transition-shadow duration-700">
                   <div class="relative w-full" style="padding-bottom: clamp(45%, 50vw, 65%);">
                     {hasVideo ? (
                       <video src={project.data.heroVideo} poster={project.data.heroImage}
-                        class="absolute inset-0 w-full h-full object-contain transition-transform duration-[1.2s] ease-smooth group-hover:scale-[1.03]"
+                        class="absolute inset-0 w-full h-full object-contain transition-all duration-[1.2s] ease-smooth group-hover:scale-[1.03] group-hover:brightness-105"
                         autoplay muted loop playsinline data-lazy-video />
                     ) : (
                       <img src={project.data.heroImage} alt={project.data.title}
                         transition:name={`hero-${project.slug}`}
-                        class="absolute inset-0 w-full h-full object-contain transition-transform duration-[1.2s] ease-smooth group-hover:scale-[1.03]"
+                        class="absolute inset-0 w-full h-full object-contain transition-all duration-[1.2s] ease-smooth group-hover:scale-[1.03] group-hover:brightness-105"
                         loading="lazy" />
                     )}
+                    <div class="absolute inset-0 bg-gradient-to-t from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   </div>
-                  <div class="p-6 md:p-8">
-                    <p class="text-label mb-2">{project.data.category}</p>
-                    <h3 class="font-display text-2xl md:text-3xl text-text-primary">{project.data.title}</h3>
+                  <div class="p-6 md:p-8 border-t border-border/50">
+                    <p class="text-label mb-2 group-hover:text-accent transition-colors duration-300">{project.data.category}</p>
+                    <h3 class="font-display text-2xl md:text-3xl text-text-primary group-hover:translate-x-1 transition-transform duration-500">{project.data.title}</h3>
                     <p class="text-text-muted text-sm mt-2 max-w-md">{project.data.summary}</p>
                   </div>
                 </div>
               </div>
             ) : pattern === 2 ? (
-              /* Side-by-side text + media */
+              /* Side-by-side text + media with sophisticated depth */
               <div class="container-wide py-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-1 items-stretch">
-                  <div class="flex flex-col justify-center p-8 md:p-12 bg-bg-secondary order-2 md:order-1">
-                    <p class="text-label mb-4">{project.data.category}</p>
-                    <h3 class="font-display text-3xl md:text-4xl text-text-primary mb-4">{project.data.title}</h3>
-                    <p class="text-text-muted text-sm max-w-sm">{project.data.summary}</p>
-                    <span class="text-accent text-sm mt-6 link-underline inline-block">View project</span>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-1 items-stretch shadow-2xl shadow-accent/5 group-hover:shadow-accent/10 transition-shadow duration-700">
+                  <div class="flex flex-col justify-center p-8 md:p-12 bg-gradient-to-br from-bg-secondary to-bg-secondary/80 order-2 md:order-1 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    <div class="relative z-10">
+                      <p class="text-label mb-4 group-hover:text-accent transition-colors duration-300">{project.data.category}</p>
+                      <h3 class="font-display text-3xl md:text-4xl text-text-primary mb-4 group-hover:translate-x-1 transition-transform duration-500">{project.data.title}</h3>
+                      <p class="text-text-muted text-sm max-w-sm mb-6">{project.data.summary}</p>
+                      <span class="text-accent text-sm link-underline inline-block relative group-hover:translate-x-1 transition-transform duration-500">
+                        View project
+                        <svg class="inline-block w-4 h-4 ml-1 transition-transform duration-500 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                          <path d="M5 12h14m-7-7l7 7-7 7" />
+                        </svg>
+                      </span>
+                    </div>
                   </div>
                   <div class="relative overflow-hidden order-1 md:order-2 bg-black">
                     <div class="relative w-full" style="padding-bottom: 75%;">
                       {hasVideo ? (
                         <video src={project.data.heroVideo} poster={project.data.heroImage}
-                          class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] ease-smooth group-hover:scale-[1.04]"
+                          class="absolute inset-0 w-full h-full object-cover transition-all duration-[1.2s] ease-smooth group-hover:scale-[1.04] group-hover:brightness-110"
                           autoplay muted loop playsinline data-lazy-video />
                       ) : (
                         <img src={project.data.heroImage} alt={project.data.title}
                           transition:name={`hero-${project.slug}`}
-                          class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] ease-smooth group-hover:scale-[1.04]"
+                          class="absolute inset-0 w-full h-full object-cover transition-all duration-[1.2s] ease-smooth group-hover:scale-[1.04] group-hover:brightness-110"
                           loading="lazy" />
                       )}
+                      <div class="absolute inset-0 bg-gradient-to-tl from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                     </div>
                   </div>
                 </div>
               </div>
             ) : (
-              /* Centered narrow with lots of breathing room */
+              /* Centered narrow with sophisticated depth and breathing room */
               <div class="container-narrow py-8">
-                <div class="relative overflow-hidden">
+                <div class="relative overflow-hidden shadow-xl shadow-accent/10 group-hover:shadow-2xl group-hover:shadow-accent/15 transition-shadow duration-700">
                   <div class="relative w-full" style="padding-bottom: clamp(55%, 60vw, 75%);">
                     <img
                       src={project.data.heroImage}
                       alt={project.data.title}
                       transition:name={`hero-${project.slug}`}
-                      class="absolute inset-0 w-full h-full object-contain bg-bg-secondary transition-transform duration-[1.2s] ease-smooth group-hover:scale-[1.03]"
+                      class="absolute inset-0 w-full h-full object-contain bg-gradient-to-br from-bg-secondary to-bg-secondary/80 transition-all duration-[1.2s] ease-smooth group-hover:scale-[1.03] group-hover:brightness-105"
                       loading="lazy"
                     />
+                    <div class="absolute inset-0 bg-gradient-to-t from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   </div>
                   <div class="mt-4 flex items-baseline justify-between">
                     <div>
-                      <h3 class="font-display text-2xl text-text-primary">{project.data.title}</h3>
+                      <h3 class="font-display text-2xl text-text-primary group-hover:text-accent transition-colors duration-500">{project.data.title}</h3>
                       <p class="text-label mt-1">{project.data.category}</p>
                     </div>
-                    <span class="text-accent text-sm link-underline hidden md:inline-block">View</span>
+                    <span class="text-accent text-sm link-underline hidden md:inline-block group-hover:translate-x-1 transition-transform duration-500">View</span>
                   </div>
                 </div>
               </div>
@@ -183,18 +202,23 @@ const gridProjects = projects.slice(1);
     </div>
   </section>
 
-  {/* Contact — editorial, centered */}
-  <section data-animate="section" class="py-40 text-center opacity-0">
-    <p class="text-label mb-6">Contact</p>
-    <a
-      href="mailto:MattLabar12@gmail.com"
-      class="font-display text-3xl md:text-5xl text-text-primary hover:text-accent transition-colors duration-500 inline-block"
-    >
-      MattLabar12@gmail.com
-    </a>
-    <p class="text-text-muted text-sm mt-8">
-      Open to freelance, full-time, and collaboration.
-    </p>
+  {/* Contact — editorial, centered with depth */}
+  <section data-animate="section" class="py-40 text-center opacity-0 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent opacity-40" />
+    <div class="relative z-10">
+      <p class="text-label mb-6">Contact</p>
+      <a
+        href="mailto:MattLabar12@gmail.com"
+        data-magnetic
+        class="font-display text-3xl md:text-5xl lg:text-6xl text-text-primary hover:text-accent transition-colors duration-500 inline-block relative group"
+      >
+        <span class="relative z-10">MattLabar12@gmail.com</span>
+        <span class="absolute inset-0 bg-accent/10 scale-0 group-hover:scale-100 transition-transform duration-700 ease-smooth rounded-sm -z-10"></span>
+      </a>
+      <p class="text-text-muted text-sm mt-8 max-w-sm mx-auto">
+        Open to freelance, full-time, and collaboration.
+      </p>
+    </div>
   </section>
 </BaseLayout>
 

@@ -53,7 +53,9 @@ const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).toString(
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     {/* Fonts */}
-    <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,900;1,9..144,400&display=swap" rel="stylesheet" />
     <link rel="preload" href="/fonts/instrument-serif-regular.woff2" as="font" type="font/woff2" crossorigin />
 
     {/* JSON-LD Person Schema */}
@@ -97,6 +99,14 @@ const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).toString(
     <slot name="head" />
   </head>
   <body class="min-h-screen flex flex-col">
+    {/* Elegant preloader */}
+    <div id="page-loader" class="fixed inset-0 z-[100] bg-bg-primary flex items-center justify-center transition-opacity duration-700">
+      <div class="text-center">
+        <div class="loader-ring relative w-16 h-16 mx-auto mb-4"></div>
+        <p class="text-label text-text-muted">Loading</p>
+      </div>
+    </div>
+
     <Nav />
     <main class="flex-1 pt-16 md:pt-20">
       <slot />
@@ -104,6 +114,25 @@ const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).toString(
     <Footer />
     <script>
       import { initAnimations } from '@scripts/animations';
+      import { initCustomCursor, cleanupCustomCursor } from '@scripts/cursor';
+
+      // Init on load
+      initCustomCursor();
+
+      // Cleanup and re-init on page transitions
+      document.addEventListener('astro:before-swap', cleanupCustomCursor);
+      document.addEventListener('astro:after-swap', initCustomCursor);
+
+      // Remove preloader after page loads
+      window.addEventListener('load', () => {
+        const loader = document.getElementById('page-loader');
+        if (loader) {
+          setTimeout(() => {
+            loader.style.opacity = '0';
+            setTimeout(() => loader.remove(), 700);
+          }, 300);
+        }
+      });
     </script>
   </body>
 </html>
