@@ -5,20 +5,20 @@ export default {
     extend: {
       colors: {
         bg: {
-          primary: '#0a0a0a',
-          secondary: '#141414',
-          elevated: '#1e1e1e',
+          primary: '#1c1917', // deep earthy espresso/brown
+          secondary: '#292524', // slightly lighter brown-gray
+          elevated: '#3b3431',
         },
         text: {
-          primary: '#fafafa',
-          secondary: '#a0a0a0',
-          muted: '#666666',
+          primary: '#faf7f2', // off-white warm sand
+          secondary: '#d6d1c9', // muted sand
+          muted: '#a39c93', // warm gray
         },
         accent: {
-          DEFAULT: '#c9a96e',
-          hover: '#dbb978',
+          DEFAULT: '#d97746', // warm terracotta/clay
+          hover: '#e88f61',
         },
-        border: 'rgba(255,255,255,0.08)',
+        border: 'rgba(250, 247, 242, 0.08)',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],

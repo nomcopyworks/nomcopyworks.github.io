@@ -30,9 +30,14 @@ Custom Air Jordans built from scratch with hand-marbled and printed leather pane
 
 ![Dotted leather panels cut and ready for assembly](/images/Website/JMUFinal/converted/HQ/dottedprocess1.jpg)
 
-## Elephant Print
+  ## Elephant Print
 
 ![Elephant print leather texture detail](/images/Website/JMUFinal/ElephantLeather.jpg)
+
+![Elephant print leather shoe build progress](/images/Website/JMUFinal/converted/IMG_6591.jpg)
+![Elephant print leather shoe details](/images/Website/JMUFinal/converted/IMG_6592.jpg)
+![Elephant print leather side profile](/images/Website/JMUFinal/converted/IMG_6745.jpg)
+![Elephant print leather stitching](/images/Website/JMUFinal/converted/IMG_6812.jpg)
 
 ## Process
 
