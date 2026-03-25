@@ -1,0 +1,231 @@
+---
+import BaseLayout from '@layouts/base.astro';
+import ScrollIndicator from '@components/scroll-indicator.astro';
+import { getCollection } from 'astro:content';
+
+const allProjects = await getCollection('projects');
+const projects = allProjects
+  .filter((p) => p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+
+// Split into hero project + rest
+const heroProject = projects[0];
+const gridProjects = projects.slice(1);
+---
+
+<BaseLayout title="Matt LaBar">
+  {/* Hero — full viewport with hero project image */}
+  <section class="relative h-screen -mt-16 md:-mt-20 overflow-hidden">
+    <img
+      src={heroProject.data.heroImage}
+      alt={heroProject.data.title}
+      data-scroll="hero-zoom"
+      class="absolute inset-0 w-full h-full object-cover scale-[1.08]"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-black/50" />
+    <div class="absolute inset-0 bg-gradient-to-t from-bg-primary via-transparent to-bg-primary/30" />
+
+    <div class="relative z-10 flex flex-col justify-between h-full pt-24 pb-12 px-6 md:px-12">
+      {/* Top — name and descriptor */}
+      <div>
+        <h1 data-animate="hero" class="font-display text-5xl md:text-7xl lg:text-[6rem] text-white leading-[0.85] mb-3 opacity-0">
+          Matt LaBar
+        </h1>
+        <p data-animate="hero" class="text-text-secondary/80 text-base md:text-lg opacity-0">
+          Industrial Designer. Maker.
+        </p>
+      </div>
+
+      {/* Bottom — location + scroll */}
+      <div class="flex items-end justify-between">
+        <p data-animate="hero" class="text-label opacity-0">Yardley, PA</p>
+        <div data-animate="hero" class="opacity-0">
+          <ScrollIndicator target="#work" />
+        </div>
+      </div>
+    </div>
+
+    {/* Hero project link overlay */}
+    <a
+      href={`/work/${heroProject.slug}`}
+      class="absolute bottom-0 right-0 p-6 md:p-12 z-10 group"
+    >
+      <span class="text-label block mb-1 text-text-secondary/60 group-hover:text-accent transition-colors duration-300">
+        Featured
+      </span>
+      <span class="font-display text-xl md:text-2xl text-white group-hover:text-accent transition-colors duration-300">
+        {heroProject.data.title} &rarr;
+      </span>
+    </a>
+  </section>
+
+  {/* Work — editorial scroll experience */}
+  <section id="work" class="pt-32 pb-16">
+    <div class="container-wide mb-20">
+      <p class="text-label">Selected Work</p>
+    </div>
+
+    <div class="space-y-1">
+      {gridProjects.map((project, i) => {
+        // Alternate between different layout patterns
+        const pattern = i % 5;
+        const hasVideo = !!project.data.heroVideo;
+
+        return (
+          <a
+            href={`/work/${project.slug}`}
+            data-animate="card"
+            data-parallax="card"
+            class="project-card group block overflow-hidden opacity-0"
+          >
+            {pattern === 0 ? (
+              /* Full-width cinematic — edge to edge */
+              <div class="relative w-full overflow-hidden">
+                <div class="relative w-full" style="padding-bottom: clamp(35%, 40vw, 55%);">
+                  {hasVideo ? (
+                    <video src={project.data.heroVideo} poster={project.data.heroImage}
+                      class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] ease-smooth group-hover:scale-[1.04]"
+                      autoplay muted loop playsinline data-lazy-video />
+                  ) : (
+                    <img src={project.data.heroImage} alt={project.data.title}
+                      transition:name={`hero-${project.slug}`}
+                      class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] ease-smooth group-hover:scale-[1.04]"
+                      loading="lazy" />
+                  )}
+                  <div class="absolute inset-0 bg-black/25 group-hover:bg-black/10 transition-colors duration-700" />
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 p-6 md:p-10 lg:p-12 flex items-end justify-between">
+                  <div>
+                    <p class="text-label mb-2 text-white/50">{project.data.category}</p>
+                    <h3 class="font-display text-3xl md:text-4xl lg:text-5xl text-white">{project.data.title}</h3>
+                  </div>
+                  {hasVideo && (
+                    <span class="text-label text-white/40 hidden md:block">Video</span>
+                  )}
+                </div>
+              </div>
+            ) : pattern === 1 || pattern === 3 ? (
+              /* Contained — gallery feel */
+              <div class="container-wide py-4">
+                <div class="relative w-full overflow-hidden bg-bg-secondary">
+                  <div class="relative w-full" style="padding-bottom: clamp(45%, 50vw, 65%);">
+                    {hasVideo ? (
+                      <video src={project.data.heroVideo} poster={project.data.heroImage}
+                        class="absolute inset-0 w-full h-full object-contain transition-transform duration-[1.2s] ease-smooth group-hover:scale-[1.03]"
+                        autoplay muted loop playsinline data-lazy-video />
+                    ) : (
+                      <img src={project.data.heroImage} alt={project.data.title}
+                        transition:name={`hero-${project.slug}`}
+                        class="absolute inset-0 w-full h-full object-contain transition-transform duration-[1.2s] ease-smooth group-hover:scale-[1.03]"
+                        loading="lazy" />
+                    )}
+                  </div>
+                  <div class="p-6 md:p-8">
+                    <p class="text-label mb-2">{project.data.category}</p>
+                    <h3 class="font-display text-2xl md:text-3xl text-text-primary">{project.data.title}</h3>
+                    <p class="text-text-muted text-sm mt-2 max-w-md">{project.data.summary}</p>
+                  </div>
+                </div>
+              </div>
+            ) : pattern === 2 ? (
+              /* Side-by-side text + media */
+              <div class="container-wide py-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-1 items-stretch">
+                  <div class="flex flex-col justify-center p-8 md:p-12 bg-bg-secondary order-2 md:order-1">
+                    <p class="text-label mb-4">{project.data.category}</p>
+                    <h3 class="font-display text-3xl md:text-4xl text-text-primary mb-4">{project.data.title}</h3>
+                    <p class="text-text-muted text-sm max-w-sm">{project.data.summary}</p>
+                    <span class="text-accent text-sm mt-6 link-underline inline-block">View project</span>
+                  </div>
+                  <div class="relative overflow-hidden order-1 md:order-2 bg-black">
+                    <div class="relative w-full" style="padding-bottom: 75%;">
+                      {hasVideo ? (
+                        <video src={project.data.heroVideo} poster={project.data.heroImage}
+                          class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] ease-smooth group-hover:scale-[1.04]"
+                          autoplay muted loop playsinline data-lazy-video />
+                      ) : (
+                        <img src={project.data.heroImage} alt={project.data.title}
+                          transition:name={`hero-${project.slug}`}
+                          class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] ease-smooth group-hover:scale-[1.04]"
+                          loading="lazy" />
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              /* Centered narrow with lots of breathing room */
+              <div class="container-narrow py-8">
+                <div class="relative overflow-hidden">
+                  <div class="relative w-full" style="padding-bottom: clamp(55%, 60vw, 75%);">
+                    <img
+                      src={project.data.heroImage}
+                      alt={project.data.title}
+                      transition:name={`hero-${project.slug}`}
+                      class="absolute inset-0 w-full h-full object-contain bg-bg-secondary transition-transform duration-[1.2s] ease-smooth group-hover:scale-[1.03]"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="mt-4 flex items-baseline justify-between">
+                    <div>
+                      <h3 class="font-display text-2xl text-text-primary">{project.data.title}</h3>
+                      <p class="text-label mt-1">{project.data.category}</p>
+                    </div>
+                    <span class="text-accent text-sm link-underline hidden md:inline-block">View</span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </a>
+        );
+      })}
+    </div>
+  </section>
+
+  {/* Contact — editorial, centered */}
+  <section data-animate="section" class="py-40 text-center opacity-0">
+    <p class="text-label mb-6">Contact</p>
+    <a
+      href="mailto:MattLabar12@gmail.com"
+      class="font-display text-3xl md:text-5xl text-text-primary hover:text-accent transition-colors duration-500 inline-block"
+    >
+      MattLabar12@gmail.com
+    </a>
+    <p class="text-text-muted text-sm mt-8">
+      Open to freelance, full-time, and collaboration.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .project-card img,
+  .project-card video {
+    will-change: transform;
+  }
+</style>
+
+<script>
+  // Lazy video: pause/play based on viewport
+  const videos = document.querySelectorAll('video[data-lazy-video]');
+  const videoObs = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const video = entry.target as HTMLVideoElement;
+      entry.isIntersecting ? video.play().catch(() => {}) : video.pause();
+    });
+  }, { rootMargin: '200px' });
+  videos.forEach((v) => videoObs.observe(v));
+
+  // Hide nav logo while hero is visible, fade in after scroll past
+  const heroSection = document.querySelector('section.h-screen');
+  const navLogo = document.querySelector('#site-nav a');
+  if (heroSection && navLogo) {
+    const el = navLogo as HTMLElement;
+    el.style.opacity = '0';
+    el.style.transition = 'opacity 0.4s ease';
+    const heroObs = new IntersectionObserver((entries) => {
+      el.style.opacity = entries[0].isIntersecting ? '0' : '1';
+    }, { threshold: 0.1 });
+    heroObs.observe(heroSection);
+  }
+</script>

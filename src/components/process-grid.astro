@@ -1,0 +1,42 @@
+---
+interface Props {
+  steps: { image: string; caption?: string; number?: number }[];
+}
+
+const { steps } = Astro.props;
+---
+
+<div class="flex gap-6 overflow-x-auto pb-4 md:grid md:grid-cols-3 md:overflow-visible md:pb-0 snap-x snap-mandatory scrollbar-hide">
+  {steps.map((step, i) => {
+    const num = step.number ?? i + 1;
+    return (
+      <div data-animate="process" class="flex-shrink-0 w-[280px] md:w-auto snap-start border-r border-border last:border-r-0 pr-6 last:pr-0 md:border-r-0 md:pr-0 md:border-b md:border-border md:pb-6 opacity-0">
+        <div class="relative overflow-hidden rounded-sm bg-bg-secondary mb-3">
+          <img
+            src={step.image}
+            alt={step.caption || `Step ${num}`}
+            loading="lazy"
+            class="w-full aspect-[4/3] object-cover opacity-0 transition-opacity duration-500 ease-smooth"
+            onload="this.classList.remove('opacity-0')"
+          />
+          <span class="absolute top-3 left-3 font-mono text-xs text-text-muted bg-bg-primary/80 px-2 py-1 rounded-sm">
+            {String(num).padStart(2, '0')}
+          </span>
+        </div>
+        {step.caption && (
+          <p class="font-mono text-xs text-text-secondary leading-relaxed">{step.caption}</p>
+        )}
+      </div>
+    );
+  })}
+</div>
+
+<style>
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+</style>

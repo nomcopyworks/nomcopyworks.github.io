@@ -1,0 +1,115 @@
+---
+interface Props {
+  images: { src: string; alt: string }[];
+}
+
+const { images } = Astro.props;
+const galleryId = `gallery-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  {images.map((image, i) => (
+    <button
+      type="button"
+      class="gallery-thumb group relative overflow-hidden rounded-sm cursor-pointer bg-bg-secondary opacity-0"
+      data-animate="image"
+      data-gallery={galleryId}
+      data-index={i}
+    >
+      <img
+        src={image.src}
+        alt={image.alt}
+        loading="lazy"
+        class="w-full h-full object-cover opacity-0 transition-all duration-500 ease-smooth group-hover:scale-[1.02]"
+        onload="this.classList.remove('opacity-0')"
+      />
+    </button>
+  ))}
+</div>
+
+<dialog
+  id={galleryId}
+  class="gallery-lightbox fixed inset-0 w-full h-full max-w-none max-h-none m-0 p-0 bg-transparent backdrop:bg-black/90"
+>
+  <div class="relative flex items-center justify-center w-full h-full p-4 md:p-12">
+    <button
+      type="button"
+      class="gallery-close absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center text-text-secondary hover:text-text-primary transition-colors duration-300"
+      aria-label="Close lightbox"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+
+    <button
+      type="button"
+      class="gallery-prev absolute left-4 z-10 w-10 h-10 flex items-center justify-center text-text-secondary hover:text-text-primary transition-colors duration-300"
+      aria-label="Previous image"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <polyline points="15 18 9 12 15 6" />
+      </svg>
+    </button>
+
+    <img
+      class="gallery-image max-w-full max-h-full object-contain transition-opacity duration-300"
+      src=""
+      alt=""
+    />
+
+    <button
+      type="button"
+      class="gallery-next absolute right-4 z-10 w-10 h-10 flex items-center justify-center text-text-secondary hover:text-text-primary transition-colors duration-300"
+      aria-label="Next image"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <polyline points="9 18 15 12 9 6" />
+      </svg>
+    </button>
+
+    <span class="gallery-counter absolute bottom-4 left-1/2 -translate-x-1/2 font-mono text-xs text-text-muted"></span>
+  </div>
+</dialog>
+
+<script define:vars={{ galleryId, images }}>
+  const dialog = document.getElementById(galleryId);
+  const img = dialog.querySelector('.gallery-image');
+  const counter = dialog.querySelector('.gallery-counter');
+  let current = 0;
+
+  function show(index) {
+    current = (index + images.length) % images.length;
+    img.style.opacity = '0';
+    setTimeout(() => {
+      img.src = images[current].src;
+      img.alt = images[current].alt;
+      img.style.opacity = '1';
+      counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(images.length).padStart(2, '0')}`;
+    }, 150);
+  }
+
+  document.querySelectorAll(`[data-gallery="${galleryId}"]`).forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      show(parseInt(thumb.dataset.index));
+      dialog.showModal();
+    });
+  });
+
+  dialog.querySelector('.gallery-close').addEventListener('click', () => dialog.close());
+  dialog.querySelector('.gallery-prev').addEventListener('click', () => show(current - 1));
+  dialog.querySelector('.gallery-next').addEventListener('click', () => show(current + 1));
+
+  dialog.addEventListener('click', (e) => {
+    if (e.target === dialog || e.target.closest('.gallery-lightbox > div') === e.target.closest('div') && !e.target.closest('button, img')) {
+      dialog.close();
+    }
+  });
+
+  dialog.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') show(current - 1);
+    if (e.key === 'ArrowRight') show(current + 1);
+    if (e.key === 'Escape') dialog.close();
+  });
+</script>

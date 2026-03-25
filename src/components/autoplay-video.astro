@@ -1,0 +1,116 @@
+---
+interface Props {
+  src: string;
+  poster?: string;
+  class?: string;
+}
+
+const { src, poster, class: className } = Astro.props;
+---
+
+<div class:list={["autoplay-video-wrap relative bg-black overflow-hidden", className]}>
+  <video
+    data-autoplay-video
+    data-src={src}
+    poster={poster}
+    class="w-full h-full object-cover"
+    muted
+    loop
+    playsinline
+    preload="none"
+  />
+  <button
+    data-video-toggle
+    class="absolute bottom-4 right-4 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-black/50 backdrop-blur-sm border border-white/10 text-white/70 hover:text-white hover:bg-black/70 transition-all duration-300 opacity-0 group-hover:opacity-100 focus:opacity-100"
+    aria-label="Pause video"
+  >
+    <svg data-icon-pause class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+      <rect x="6" y="4" width="4" height="16" />
+      <rect x="14" y="4" width="4" height="16" />
+    </svg>
+    <svg data-icon-play class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 24 24">
+      <polygon points="6,4 20,12 6,20" />
+    </svg>
+  </button>
+</div>
+
+<script>
+  function initAutoplayVideos() {
+    const wrappers = document.querySelectorAll('.autoplay-video-wrap');
+
+    const playObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target.querySelector('video') as HTMLVideoElement;
+          if (!video) return;
+
+          if (entry.isIntersecting) {
+            // Lazy-load src on first intersection
+            const dataSrc = video.dataset.src;
+            if (dataSrc && !video.src) {
+              video.src = dataSrc;
+              video.load();
+            }
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    wrappers.forEach((wrap) => {
+      playObserver.observe(wrap);
+
+      const video = wrap.querySelector('video') as HTMLVideoElement;
+      const toggle = wrap.querySelector('[data-video-toggle]') as HTMLButtonElement;
+      const iconPause = wrap.querySelector('[data-icon-pause]') as SVGElement;
+      const iconPlay = wrap.querySelector('[data-icon-play]') as SVGElement;
+
+      if (!video || !toggle || !iconPause || !iconPlay) return;
+
+      let userPaused = false;
+
+      toggle.addEventListener('click', () => {
+        if (video.paused) {
+          video.play().catch(() => {});
+          userPaused = false;
+          iconPause.classList.remove('hidden');
+          iconPlay.classList.add('hidden');
+          toggle.setAttribute('aria-label', 'Pause video');
+        } else {
+          video.pause();
+          userPaused = true;
+          iconPause.classList.add('hidden');
+          iconPlay.classList.remove('hidden');
+          toggle.setAttribute('aria-label', 'Play video');
+        }
+      });
+
+      // Show toggle on hover/touch
+      wrap.addEventListener('mouseenter', () => {
+        toggle.style.opacity = '1';
+      });
+      wrap.addEventListener('mouseleave', () => {
+        if (!video.paused) {
+          toggle.style.opacity = '0';
+        }
+      });
+      // Always show toggle when paused
+      video.addEventListener('pause', () => {
+        toggle.style.opacity = '1';
+        iconPause.classList.add('hidden');
+        iconPlay.classList.remove('hidden');
+      });
+      video.addEventListener('play', () => {
+        iconPause.classList.remove('hidden');
+        iconPlay.classList.add('hidden');
+      });
+    });
+  }
+
+  // Run on initial load and after Astro page transitions
+  initAutoplayVideos();
+  document.addEventListener('astro:after-swap', initAutoplayVideos);
+</script>

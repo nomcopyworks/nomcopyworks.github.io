@@ -1,0 +1,9 @@
+node_modules
+.git
+.claude
+.astro
+dist
+*.md
+!README.md
+.DS_Store
+.env*

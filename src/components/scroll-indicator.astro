@@ -1,0 +1,42 @@
+---
+interface Props {
+  target?: string;
+}
+
+const { target = '#projects' } = Astro.props;
+---
+
+<a
+  href={target}
+  class="scroll-indicator-link block"
+  aria-label="Scroll to projects"
+>
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.5"
+    class="text-text-muted scroll-indicator-icon"
+  >
+    <path d="M7 10l5 5 5-5" />
+  </svg>
+</a>
+
+<style>
+  .scroll-indicator-icon {
+    animation: scrollBounce 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollBounce {
+    0%, 100% {
+      transform: translateY(0);
+      opacity: 0.4;
+    }
+    50% {
+      transform: translateY(8px);
+      opacity: 1;
+    }
+  }
+</style>

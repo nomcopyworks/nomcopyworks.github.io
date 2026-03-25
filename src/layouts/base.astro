@@ -1,0 +1,109 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import Nav from '@components/nav.astro';
+import Footer from '@components/footer.astro';
+import '@styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
+}
+
+const {
+  title,
+  description = 'Portfolio of Matt LaBar — industrial designer based in Yardley, PA. Footwear design and development, trained at Arsutoria School of Design.',
+  ogImage = '/images/og-image.jpg',
+  canonicalUrl,
+} = Astro.props;
+
+const siteUrl = 'https://mattlabar.com';
+const fullTitle = title === 'Matt LaBar' ? 'Matt LaBar | Industrial Designer & Maker | Yardley, PA' : `${title} | Matt LaBar`;
+const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Matt LaBar" />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    {/* Open Graph */}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Matt LaBar" />
+
+    {/* Twitter */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+    {/* Favicon */}
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    {/* Fonts */}
+    <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/instrument-serif-regular.woff2" as="font" type="font/woff2" crossorigin />
+
+    {/* JSON-LD Person Schema */}
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Matt LaBar",
+        "alternateName": "Matthew LaBar",
+        "jobTitle": "Industrial Designer & Maker",
+        "description": "Industrial designer based in Yardley, PA, specializing in footwear design and development.",
+        "url": siteUrl,
+        "email": "MattLabar12@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Yardley",
+          "addressRegion": "PA",
+          "addressCountry": "US"
+        },
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "James Madison University"
+          },
+          {
+            "@type": "EducationalOrganization",
+            "name": "Arsutoria School of Design, Milan"
+          }
+        ],
+        "knowsAbout": [
+          "Industrial Design", "Footwear Design", "Footwear Development",
+          "Pattern Making", "Material Design", "Rhino 7", "AutoCAD",
+          "Adobe Creative Suite", "Leather Working"
+        ],
+        "sameAs": ["https://www.instagram.com/_mlcustoms_/"]
+      }
+    })} />
+
+    <ViewTransitions />
+    <slot name="head" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Nav />
+    <main class="flex-1 pt-16 md:pt-20">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      import { initAnimations } from '@scripts/animations';
+    </script>
+  </body>
+</html>

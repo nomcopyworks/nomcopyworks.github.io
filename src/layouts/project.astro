@@ -1,0 +1,270 @@
+---
+import BaseLayout from './base.astro';
+
+interface Props {
+  slug: string;
+  title: string;
+  category: string;
+  year: number;
+  summary: string;
+  heroImage: string;
+  heroVideo?: string;
+  tools?: string[];
+  client?: string;
+  prevProject?: { slug: string; title: string };
+  nextProject?: { slug: string; title: string };
+}
+
+const {
+  slug,
+  title,
+  category,
+  year,
+  summary,
+  heroImage,
+  heroVideo,
+  tools,
+  client,
+  prevProject,
+  nextProject,
+} = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={summary}
+  ogImage={heroImage}
+>
+  <article>
+    {/* Hero — full viewport, cinematic */}
+    <section class="relative w-full h-[70vh] md:h-[85vh] -mt-16 md:-mt-20 overflow-hidden bg-black">
+      {heroVideo ? (
+        <video
+          data-hero-video
+          src={heroVideo}
+          poster={heroImage}
+          transition:name={`hero-${slug}`}
+          class="absolute inset-0 w-full h-full object-cover"
+          autoplay
+          muted
+          loop
+          playsinline
+        />
+        <button
+          data-hero-toggle
+          class="absolute bottom-20 md:bottom-28 right-6 md:right-12 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-black/50 backdrop-blur-sm border border-white/10 text-white/70 hover:text-white hover:bg-black/70 transition-all duration-300 opacity-0"
+          aria-label="Pause video"
+        >
+          <svg data-hero-icon-pause class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <rect x="6" y="4" width="4" height="16" />
+            <rect x="14" y="4" width="4" height="16" />
+          </svg>
+          <svg data-hero-icon-play class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 24 24">
+            <polygon points="6,4 20,12 6,20" />
+          </svg>
+        </button>
+      ) : (
+        <img
+          src={heroImage}
+          alt={title}
+          transition:name={`hero-${slug}`}
+          data-parallax="hero"
+          class="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+        />
+      )}
+      <div class="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/20 to-transparent pointer-events-none" />
+
+      {/* Title overlaid on hero */}
+      <div class="absolute bottom-0 left-0 right-0 p-6 md:p-12 lg:p-16">
+        <div class="container-wide">
+          <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-3">
+            <span class="text-label text-text-secondary/70">{category}</span>
+            <span class="text-label text-text-secondary/70">{year}</span>
+            {client && <span class="text-label text-text-secondary/70">{client}</span>}
+          </div>
+          <h1 class="font-display text-4xl md:text-5xl lg:text-6xl text-white leading-[0.9] mb-4">{title}</h1>
+          {tools && tools.length > 0 && (
+            <div class="flex flex-wrap gap-2 mt-4">
+              {tools.map((tool) => (
+                <span class="text-label px-3 py-1 border border-white/15 rounded-full text-text-secondary/60">{tool}</span>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+
+    {/* Summary — editorial pull quote */}
+    <section data-animate="section" class="container-narrow py-16 md:py-24 opacity-0">
+      <p class="font-display text-2xl md:text-3xl text-text-primary leading-snug max-w-3xl italic">
+        {summary}
+      </p>
+    </section>
+
+    {/* Project content — generous spacing, full-bleed images */}
+    <div class="project-content space-y-8 md:space-y-12 pb-16">
+      <slot />
+    </div>
+
+    {/* Project navigation — full width, dramatic */}
+    <nav class="border-t border-border">
+      <div class="grid grid-cols-2">
+        {prevProject ? (
+          <a href={`/work/${prevProject.slug}`} class="group p-8 md:p-12 border-r border-border hover:bg-bg-secondary/50 transition-colors duration-500">
+            <span class="text-label mb-2 block">&larr; Previous</span>
+            <span class="font-display text-xl md:text-2xl text-text-primary group-hover:text-accent transition-colors duration-300">
+              {prevProject.title}
+            </span>
+          </a>
+        ) : <div class="border-r border-border" />}
+        {nextProject ? (
+          <a href={`/work/${nextProject.slug}`} class="group p-8 md:p-12 text-right hover:bg-bg-secondary/50 transition-colors duration-500">
+            <span class="text-label mb-2 block">Next &rarr;</span>
+            <span class="font-display text-xl md:text-2xl text-text-primary group-hover:text-accent transition-colors duration-300">
+              {nextProject.title}
+            </span>
+          </a>
+        ) : <div />}
+      </div>
+    </nav>
+  </article>
+
+  {/* CreativeWork Schema */}
+  <script
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": title,
+      "description": summary,
+      "creator": {
+        "@type": "Person",
+        "name": "Matt LaBar",
+        "url": "https://mattlabar.com"
+      },
+      "image": `https://mattlabar.com${heroImage}`,
+      "genre": category,
+      "dateCreated": `${year}`,
+      "keywords": [category, ...(tools || []), ...(client ? [client] : []), "Matt LaBar", "industrial design", "handmade"].join(", "),
+    })}
+  />
+</BaseLayout>
+
+<script>
+  function initHeroVideo() {
+    const video = document.querySelector('[data-hero-video]') as HTMLVideoElement;
+    const toggle = document.querySelector('[data-hero-toggle]') as HTMLButtonElement;
+    if (!video || !toggle) return;
+
+    const iconPause = toggle.querySelector('[data-hero-icon-pause]') as SVGElement;
+    const iconPlay = toggle.querySelector('[data-hero-icon-play]') as SVGElement;
+    const heroSection = video.closest('section') as HTMLElement;
+
+    // Show toggle on hover over the hero section
+    heroSection.addEventListener('mouseenter', () => {
+      toggle.style.opacity = '1';
+    });
+    heroSection.addEventListener('mouseleave', () => {
+      if (!video.paused) toggle.style.opacity = '0';
+    });
+    // On touch devices, always show when paused
+    video.addEventListener('pause', () => {
+      toggle.style.opacity = '1';
+      iconPause.classList.add('hidden');
+      iconPlay.classList.remove('hidden');
+    });
+    video.addEventListener('play', () => {
+      iconPause.classList.remove('hidden');
+      iconPlay.classList.add('hidden');
+    });
+
+    toggle.addEventListener('click', () => {
+      if (video.paused) {
+        video.play().catch(() => {});
+        toggle.setAttribute('aria-label', 'Pause video');
+      } else {
+        video.pause();
+        toggle.setAttribute('aria-label', 'Play video');
+      }
+    });
+
+    // Pause when scrolled out of view, resume when visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(heroSection);
+  }
+
+  initHeroVideo();
+  document.addEventListener('astro:after-swap', initHeroVideo);
+</script>
+
+<style is:global>
+  /* Make project content images full-bleed and cinematic */
+  .project-content img {
+    width: 100%;
+    max-width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    object-fit: cover;
+    max-height: 80vh;
+  }
+
+  .project-content h2 {
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #666666;
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+  }
+
+  .project-content p {
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    color: #a0a0a0;
+    font-size: 0.875rem;
+  }
+
+  .project-content p:has(img) {
+    max-width: none;
+    padding: 0;
+  }
+
+  /* Captions (em inside p after img) */
+  .project-content em {
+    display: block;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #666666;
+    font-style: normal;
+    padding-top: 0.75rem;
+  }
+</style>

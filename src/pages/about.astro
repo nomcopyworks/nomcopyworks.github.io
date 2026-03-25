@@ -1,0 +1,38 @@
+---
+import BaseLayout from '@layouts/base.astro';
+---
+
+<BaseLayout title="About" description="Matt LaBar is an industrial designer based in Yardley, PA, specializing in footwear design and development. Trained at Arsutoria School of Design, Milan.">
+  <section class="container-narrow py-24 md:py-32">
+    <p class="text-label mb-16 fade-in">About</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-12 md:gap-16 items-start">
+      {/* Headshot */}
+      <div class="fade-in" style="animation-delay: 0.1s;">
+        <img
+          src="/images/Website/headshot.JPG"
+          alt="Matt LaBar — industrial designer based in Yardley, PA"
+          class="w-48 md:w-full aspect-square object-cover rounded-sm"
+          loading="eager"
+        />
+      </div>
+
+      {/* Bio + Skills */}
+      <div class="fade-in" style="animation-delay: 0.2s;">
+        <p class="text-lg text-text-secondary leading-relaxed mb-8">
+          I'm an industrial designer specializing in footwear, based in Yardley, PA. Trained at Arsutoria School of Design in Milan and James Madison University. Experience at Movado Group. I design and build shoes by hand — leather, textiles, sole construction. I also play professional Ultimate Frisbee for the New York Empire.
+        </p>
+
+        <div class="flex flex-wrap gap-3 mb-10">
+          {['Footwear Design', 'Pattern Making', 'Material Design', 'Rhino 7', 'AutoCAD', 'Adobe Creative Suite', 'Leatherwork', 'Arsutoria Milan', 'Movado Group'].map((skill) => (
+            <span class="text-label px-3 py-1.5 border border-border rounded-sm">{skill}</span>
+          ))}
+        </div>
+
+        <a href="/contact" class="text-accent hover:text-accent-hover link-underline transition-colors duration-300">
+          Get in touch
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

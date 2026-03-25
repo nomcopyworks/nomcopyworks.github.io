@@ -1,0 +1,44 @@
+---
+interface Props {
+  src: string;
+  poster?: string;
+  alt?: string;
+}
+
+const { src, poster, alt } = Astro.props;
+---
+
+<div class="relative rounded-sm overflow-hidden bg-bg-secondary">
+  <video
+    data-video-src={src}
+    poster={poster}
+    class="w-full aspect-video object-cover"
+    controls
+    loop
+    playsinline
+    preload="none"
+    aria-label={alt}
+  />
+</div>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const video = entry.target as HTMLVideoElement;
+          const src = video.dataset.videoSrc;
+          if (src && !video.src) {
+            video.src = src;
+          }
+          observer.unobserve(video);
+        }
+      });
+    },
+    { rootMargin: '200px' }
+  );
+
+  document.querySelectorAll('video[data-video-src]').forEach((video) => {
+    observer.observe(video);
+  });
+</script>
